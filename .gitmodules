@@ -1,0 +1,15 @@
+[submodule "jenv/jenv"]
+	path = jenv/.jenv
+	url = https://github.com/jenv/jenv.git
+[submodule "nodenv/.nodenv"]
+	path = nodenv/.nodenv
+	url = https://github.com/nodenv/nodenv.git
+[submodule "pyenv/.pyenv"]
+	path = pyenv/.pyenv
+	url = https://github.com/pyenv/pyenv.git
+[submodule "goenv/.goenv"]
+	path = goenv/.goenv
+	url = https://github.com/syndbg/goenv.git
+[submodule "rbenv/.rbenv"]
+	path = rbenv/.rbenv
+	url = https://github.com/rbenv/rbenv.git
