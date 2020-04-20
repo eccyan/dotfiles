@@ -1,0 +1,42 @@
+# plugin管理
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# 非同期処理全般
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+# colorschema
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+
+# statusline
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# 無駄な空白をハイライト
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'tpope/vim-pathogen'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'runoshun/vim-alloy'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive.git'
+
+[[plugins]]
+repo = 'Valloric/YouCompleteMe'
+merged = 0
+hook_add = '''
+let g:ycm_global_ycm_extra_conf = \
+  "~/.cache/dein/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
+'''
