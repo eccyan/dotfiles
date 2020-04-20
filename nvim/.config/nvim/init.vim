@@ -37,7 +37,6 @@ endif
 
 filetype indent on
 filetype plugin indent on
-colorscheme molokai
 
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-j> j

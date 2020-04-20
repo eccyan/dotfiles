@@ -1,105 +1,38 @@
+# name: nai
+# Display the following bits on the left:
+# * Current directory name
+# * Git branch and dirty state (if inside a git repo)
+
+function _git_branch_name
+  echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
+end
+
+function _git_dirty
+  echo (command git status -s --ignore-submodules=dirty 2> /dev/null)
+end
+
 function fish_prompt
-    set -l status_copy $status
-    set -l pwd_info (pwd_info "/")
-    set -l dir
-    set -l base
+  set -l yellow (set_color yellow)
+  set -l green (set_color green)
+  set -l normal (set_color normal)
 
-    set -l color (set_color white)
-    set -l color2 (set_color normal)
+  set -l cwd (basename (prompt_pwd))
 
-    set -l color_error (set_color $fish_color_error)
-    set -l color_normal (set_color $fish_color_normal)
+  echo -e ""
 
-    echo -sn " "
+  echo -n -s ' ' $cwd $normal
 
-    if test "$status_copy" -ne 0
-        set color "$color_error"
-        set color2 "$color_error"
-    end
+  if [ (_git_branch_name) ]
+    set -l git_branch (_git_branch_name)
 
-    if test 0 -eq (id -u "$USER")
-        echo -sn "$color_error\$ $color_normal"
-    end
-
-    if test ! -z "$SSH_CLIENT"
-        set -l color "$color2"
-
-        if test 0 -eq (id -u "$USER")
-            set color "$color_error"
-        end
-
-        echo -sn "$color"(host_info "usr@")"$color_normal"
-    end
-
-    if test "$PWD" = ~
-        set base (set_color cyan)"~"
-
-    else if pwd_is_home
-        set dir
+    if [ (_git_dirty) ]
+      set git_info $yellow $git_branch
     else
-        if test "$PWD" != /
-            set dir "/"
-        end
-
-        set base "$color_error/"
+      set git_info $green $git_branch
     end
+    echo -n -s ' ' $git_info $normal
+  end
 
-    if test ! -z "$pwd_info[1]"
-        set base "$pwd_info[1]"
-    end
+  echo -n -s ' ' $normal
 
-    if test ! -z "$pwd_info[2]"
-        set dir "$dir$pwd_info[2]/"
-    end
-
-    echo -sn "$color2$dir$color$base$color_normal"
-
-    if test ! -z "$pwd_info[3]"
-        echo -sn "$color/$pwd_info[3]"
-    end
-
-    if set branch_name (git_branch_name)
-        set -l git_color
-        set -l git_glyph "╍"
-
-        if git_is_staged
-            set git_color (set_color green)
-
-            if git_is_dirty
-                set git_glyph "$git_color$git_glyph$color_error$git_glyph"
-                set git_color "$color_error"
-            end
-
-        else if git_is_dirty
-            set git_color "$color_error"
-
-        else if git_is_touched
-            set git_color "$color_error"
-        else
-            set git_color (set_color cyan)
-        end
-
-        set -l git_ahead (git_ahead "+" "-" "+-")
-
-        if test "$branch_name" = "master"
-            set branch_name
-            if git_is_stashed
-                set branch_name "{}"
-            end
-        else
-            set -l left_par "("
-            set -l right_par ")"
-
-            if git_is_stashed
-                set left_par "{"
-                set right_par "}"
-            end
-
-            set branch_name " $git_color$left_par$color2$branch_name$git_color$right_par"
-        end
-
-        echo -sn " $git_color$git_glyph$branch_name$git_ahead"
-    end
-
-    echo -sn "$color_normal "
 end
