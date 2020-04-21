@@ -2,8 +2,6 @@
 
 set PATH $HOME/.jenv/bin $PATH
 set PATH $HOME/.nodenv/bin $PATH
-set GOENV_ROOT $HOME/.goenv
-set PATH $GOENV_ROOT/bin $PATH
 
 . ~/.config/fish/jenv.fish
 . ~/.config/fish/rbenv.fish
@@ -19,3 +17,6 @@ set -x NVIM_PYTHON_LOG_LEVEL DEBUG
 
 # nodenv
 status --is-interactive; and source (nodenv init -|psub)
+
+# goenv
+status --is-interactive; and source (goenv init -|psub)
