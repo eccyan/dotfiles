@@ -1,5 +1,10 @@
 .PHONY: init
 
+install-envbuild: set-env
+	git clone https://github.com/rbenv/ruby-build.git (rbenv root)/plugins/ruby-build
+	git clone https://github.com/nodenv/node-build.git (nodenv root)/plugins/node-build
+
+
 set-env: stow-all
 	fish -c "set -Ux PYENV_ROOT $$HOME/.pyenv"
 	fish -c "set -Ux fish_user_paths $$PYENV_ROOT/bin $$fish_user_paths"
