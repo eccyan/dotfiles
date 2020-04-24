@@ -2,3 +2,5 @@
 [user]
   name = eccyan
   email = g00.eccyan@gmail.com
+[core]
+	editor = vi
