@@ -1,8 +1,5 @@
 . ~/.config/fish/aliases.fish
 
-set PATH $HOME/.jenv/bin $PATH
-set PATH $HOME/.nodenv/bin $PATH
-
 . ~/.config/fish/jenv.fish
 . ~/.config/fish/rbenv.fish
 
