@@ -72,7 +72,3 @@ set fileencodings=utf-8,sjis
 " python paths
 let g:python_host_prog=$PYENV_ROOT.'/versions/2.7.17/bin/python'
 let g:python3_host_prog=$PYENV_ROOT.'/versions/3.8.2/bin/python'
-
-" for deoplete.vim
-" 一つ目の候補を選択状態にする
-set completeopt+=noinsert

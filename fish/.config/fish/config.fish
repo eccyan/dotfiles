@@ -17,3 +17,6 @@ status --is-interactive; and source (nodenv init -|psub)
 
 # goenv
 status --is-interactive; and source (goenv init -|psub)
+
+# replace malloc
+set -x LD_PRELOAD /usr/local/lib/mimalloc-1.6/libmimalloc.so
