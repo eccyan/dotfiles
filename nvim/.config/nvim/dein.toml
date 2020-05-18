@@ -145,7 +145,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -164,4 +164,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Highlight color
 highlight CocErrorSign ctermfg=15 ctermbg=196
 highlight CocWarningSign ctermfg=0 ctermbg=172
+
+" Switch source header
+nnoremap <silent> <space>a  :<C-u>CocCommand clangd.switchSourceHeader<cr>
 '''
