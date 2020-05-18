@@ -14,6 +14,18 @@ repo = 'chriskempson/vim-tomorrow-theme'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
+
+[[plugins]]
+repo = 'VincentCordobes/vim-translate'
+hook_add = '''
+nnoremap <silent> <leader>tt :Translate<CR>
+vnoremap <silent> <leader>tt :TranslateVisual<CR>
+let g:translate#default_languages = {
+      \ 'en': 'ja',
+      \ 'ja': 'en'
+      \ }
+'''
+
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
