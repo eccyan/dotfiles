@@ -17,7 +17,7 @@ set-env: stow-all
 	fish -c "set -Ux fish_user_paths $$JENV_ROOT/bin $$fish_user_paths"
 
 stow-all: init
-	ls -la | grep ^d | awk '{ print $$9 }' | grep -v '\.\+' | \
+	find . -d 1 -type d | tr -d './' | \
 	xargs stow -vv --target ${HOME}
 
 init:
