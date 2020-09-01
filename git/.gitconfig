@@ -4,3 +4,7 @@
   email = g00.eccyan@gmail.com
 [core]
 	editor = vi
+[credential]
+	helper = osxkeychain
+[pull]
+	rebase = false
