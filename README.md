@@ -3,6 +3,6 @@
 ## How to use
 
 ```
-$ brew install git fish stow
+$ brew install git hub fish stow
 $ make
 ```
