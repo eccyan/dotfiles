@@ -19,4 +19,7 @@ status --is-interactive; and source (nodenv init -|psub)
 status --is-interactive; and source (goenv init -|psub)
 
 # replace malloc
-set -x LD_PRELOAD /usr/local/lib/mimalloc-1.6/libmimalloc.so
+# set -x LD_PRELOAD /usr/local/lib/mimalloc-1.6/libmimalloc.so
+
+# Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
+complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
