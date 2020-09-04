@@ -1,5 +1,5 @@
 alias vi='nvim'
-alias ack='pt'
+alias ack='ag'
 alias deepl="tr \"\n\" \" \" | xargs echo 'http://www.deepl.com/translator#en/ja/' | xargs -I {} xdg-open '{}'"
 
 switch (uname)
