@@ -15,6 +15,7 @@ set-env: stow-all
 	fish -c "set -Ux fish_user_paths $$NODENV_ROOT/bin $$fish_user_paths"
 	fish -c "set -Ux JENV_ROOT $$HOME/.jenv"
 	fish -c "set -Ux fish_user_paths $$JENV_ROOT/bin $$fish_user_paths"
+	fish -c "set -Ux fish_user_paths $$HOME/.cargo/bin $$fish_user_paths"
 
 stow-all: init
 	find . -d 1 -type d | tr -d './' | \
