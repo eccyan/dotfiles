@@ -36,6 +36,9 @@ let g:translate#default_languages = {
 repo = 'jparise/vim-graphql'
 
 [[plugins]]
+repo = 'rust-lang/rust.vim'
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 on_i = 1
