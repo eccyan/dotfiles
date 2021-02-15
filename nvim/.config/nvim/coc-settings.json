@@ -45,5 +45,6 @@
               " ": "info"
           }
       }
-  }
+  },
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true
 }
