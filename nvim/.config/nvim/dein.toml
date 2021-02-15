@@ -14,6 +14,12 @@ repo = 'chriskempson/vim-tomorrow-theme'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+hook_add = '''
+let g:javascript_plugin_flow = 1
+'''
+
 
 [[plugins]]
 repo = 'VincentCordobes/vim-translate'
@@ -25,6 +31,9 @@ let g:translate#default_languages = {
       \ 'ja': 'en'
       \ }
 '''
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
